@@ -5,12 +5,11 @@
 
 class Client
 {
-	private:
-		int num_carte : integrer;
-		
  	 public :
-		void reprise();							//constructor
-		void authentifier();
+		void authentifier(int);
+		void ajouter();
+		void suprimer();
+		void afficher_clients();
 };
 
 #endif // BASE_CLIENT_H
