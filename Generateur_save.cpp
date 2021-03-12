@@ -5,7 +5,7 @@ void GenerateurSave::generer_PWN()
 {
 }
 
-void GenerateurSave::float_tension()
+float GenerateurSave::tension()
 {
 }
 

@@ -7,7 +7,7 @@ class GenerateurSave
 {
  	 public :
 		void generer_PWN();	
-		void float_tension();					
+		float tension();					
 		void charger();
 		void ouvrir_AC();
 		void fermer_AC();
