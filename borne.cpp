@@ -21,9 +21,6 @@ int main()
 }
 void charger_batterie(){
 	GenerateurSave generateur();
-	Voyants voyant();
-	Prise prise();
 
-	voyant.set_charge("rouge");
-
+	generateur.charger();
 }
