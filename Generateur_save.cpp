@@ -1,5 +1,7 @@
 #include "Generateur_save.h"
 
+GenerateurSave::GenerateurSave(){
+}
 
 void GenerateurSave::generer_PWN()
 {
