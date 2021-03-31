@@ -5,6 +5,10 @@
 #include "lecteurcarte.h"
 #include "base_client.h"
 
+//my libraries
+#include "Generateur_save.h"
+
+
 int main()
 {
 
@@ -23,4 +27,9 @@ int main()
 
     }
 
+}
+void charger_batterie(){
+	GenerateurSave generateur();
+
+	generateur.charger();
 }
