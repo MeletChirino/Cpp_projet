@@ -6,7 +6,8 @@
 class GenerateurSave
 {
  	 public :
-		void generer_PWN();	
+		GenerateurSave();
+		void generer_PWM(int);	
 		float tension();					
 		void charger();
 		void ouvrir_AC();

@@ -2,13 +2,13 @@
 #include <donnees_borne.h>
 #include <memoire_borne.h>
 
-entrees *io;
-int shmid;
 
 GenerateurSave::GenerateurSave(){
+    entrees *io;
+    int shmid;
 }
 
-void GenerateurSave::generer_PWN(int mode)
+void GenerateurSave::generer_PWM(int mode)
 {
 	io = acces_memoire(&shmid);
 	switch(mode){

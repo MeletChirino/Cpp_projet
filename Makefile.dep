@@ -1,2 +1,5 @@
-lecteurcarte.o: lecteurcarte.cpp lecteurcarte.h
-borne.o: borne.cpp lecteurcarte.h
+lecteurcarte.o: lecteurcarte.cpp lecteurcarte.h base_client.h voyants.h
+borne.o: borne.cpp lecteurcarte.h base_client.h voyants.h \
+ Generateur_save.h
+base_client.o: base_client.cpp base_client.h
+voyants.o: voyants.cpp voyants.h

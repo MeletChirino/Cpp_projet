@@ -2,6 +2,7 @@
 #define LECTEURCARTE_H
 #include <lcarte.h>
 #include "base_client.h"
+#include "voyants.h"
 #include <iostream>
 
 using namespace std;
@@ -16,6 +17,7 @@ class LecteurCarte
 	void lire_carte();
 
  	Client client;
+	Voyants voyant;
 };
 
 

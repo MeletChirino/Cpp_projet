@@ -9,40 +9,43 @@ int Client::authentifier(int num_carte)
         {
            return 1;
         }
-        else
-        {
-
-        }
     }
     return 0;
 
 }
-/*
+
+void Client::afficher_clients()
+{
+    for(int i = 0; i < 10; i++)
+    {
+        cout <<"Client numero "<<i<<" a le numero "<<base_donnee[i]<< endl;
+    }
+}
+
+
 void Client::ajouter()
 {
-    int i=2;
-    int numclient;
+    int num_client;
+    int num_carte;
 
-    cout <<'Saisir le numero du client a ajouter'<< endl;
-    cin >>numclient;
+    cout <<"Saisir le numero du client a ajouter"<< endl;
+    cin >>num_client;
 
+    cout <<"Saisir le numero le numero de carte a ajouter"<< endl;
+    cin >>num_carte;
 
-    base_donnee[i+1] = numclient;
+    base_donnee[num_client] = num_carte;
 }
+
 
 void Client::supprimer()
 {
     int i;
-    int numclient;
 
-    cout <<'Choisir le numéro du client a supprimer'<< endl;
+    cout <<"Choisir le numéro du client a supprimer"<< endl;
 
-    for(i=0; i<10; i++)
-    {
-        cout <<'Client numero'<<i<<'a le numero '<<client[i]<< endl;
-    }
     cin >>i;
-    client[i] = 0;
+    base_donnee[i] = 0;
 
 }
-*/
+

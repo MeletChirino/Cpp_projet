@@ -1,22 +1,42 @@
 #include "voyants.h"
-#include <donnees_borne.h>
-#include <memoire_borne.h>
 
-entrees *io;
-int shmid;
+Voyants::Voyants(){
+    io = acces_memoire(&shmid);
+}
 
 void Voyants::set_charge(){
-	io = acces_memoire(&shmid);
-	//je peux utiliser un string comme argument?
-	//
-	//if vert -> io.led_vert(allumer)
-	io->led_charge=VERT;
-	//if vert -> io.led_rouge(allumer)
-	io->led_charge=ROUGE;
+
+    float time0 = io->timer_sec;
+
+    while(io->timer_sec - time0 <= 8)
+    {
+        io->led_charge = VERT;
+    }
+    if(io->timer_sec - time0 > 60)
+    {
+        io->led_charge = OFF;
+        io->timer_sec = 0;
+    }
+
 }
 void Voyants::set_dispo(){
+
+        io->led_dispo = VERT;
+
 }
-void Voyants::blink_charge(){
+void Voyants::set_defaut(){
+
+        float time0 = io->timer_sec;
+
+        while(io->timer_sec - time0 <= 8)
+        {
+            io->led_defaut = ROUGE;
+        }
+        if(io->timer_sec - time0 > 8)
+        {
+            io->led_defaut = OFF;
+            io->timer_sec = 0;
+        }
 }
-int Voyants::dispo(){
-}
+//void Voyants::blink_charge(){}
+//int Voyants::dispo(){}

@@ -12,14 +12,17 @@ class Client
 {
  	 public :
 
-		int base_donnee[10] = {1,2,0,0,0,0,9,0,0,0};
+		int base_donnee[10] = {1,2,0,0,0,0,0,0,0,0};
+		int authentifier(int num_carte);
+		void afficher_clients();
+		void ajouter();
+		void supprimer();
+
 		//int base_donnee =  1;
 		//std::vector <int> base_donnee 
 
-		int authentifier(int num_carte);
-		//void ajouter();
-		//void suprimer();
-		//void afficher_clients();
+		
+		
 };
 
 #endif // BASE_CLIENT_H
