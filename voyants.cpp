@@ -12,7 +12,8 @@ void Voyants::set_charge(){
     {
         io->led_charge = VERT;
     }
-    if(io->timer_sec - time0 > 60)
+
+    if(io->timer_sec - time0 > 8)
     {
         io->led_charge = OFF;
         io->timer_sec = 0;

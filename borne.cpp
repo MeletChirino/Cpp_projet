@@ -9,10 +9,17 @@
 
 int main()
 {
-    int choix = '.';
+    entrees *io;
+    int shmid;
+
+    io = acces_memoire(&shmid);
+
+    GenerateurSave generateursave;
     LecteurCarte lecteurcarte;
     Client client;
 
+
+    int choix = '.';
     int a = 1;
 
     while (1)
@@ -24,9 +31,9 @@ int main()
         cin >> choix;
 
         if(choix == 1)
-        {
+        {     
             lecteurcarte.lire_carte();
-            client.authentifier(a);
+
         }
         else if(choix == 2)
         {

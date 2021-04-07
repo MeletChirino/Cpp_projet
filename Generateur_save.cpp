@@ -4,52 +4,67 @@
 
 
 GenerateurSave::GenerateurSave(){
-    entrees *io;
-    int shmid;
+    io = acces_memoire(&shmid);
 }
 
 void GenerateurSave::generer_PWM(int mode)
 {
-	io = acces_memoire(&shmid);
 	switch(mode){
 		case 1: 
 			io->gene_pwm=DC;
+            cout <<"test"<< endl;
 			break;
 		case 2:
 			io->gene_pwm=AC_1K;
 			break;
 		case 3:
-			io->gene_PWM=AC_CL;
+            io->gene_pwm=AC_CL;
 			break;
 	
 	}
 }
 
-float GenerateurSave::tension()
+void GenerateurSave::tension()
 {
+    while(1)
+    {
+        switch(io->gene_u)
+        {
+            case 9: cout <<"Prise connectee"<< endl;
+            break;
+
+            case 12: cout <<"Prise deconnectee"<< endl;
+            break;
+        }
+    }
 }
 
 void GenerateurSave::charger()
 {
-	Voyants voyant();
-	Prise prise();
+    //Voyants voyant();
 
-	voyant.set_charge("rouge");
-	//si cette methode fait partie on fait pas self.generer_pwm()?
-	generer_PWM(1);
-	//can it read DC like that or i have to pass the argument
-	// as string?
+    //voyant.set_charge("rouge");
+    //si cette methode fait partie on fait pas self.generer_pwm()?
 
-	prise.deverrouiller_trape();
-	prise.verrouiller_trappe();
-	prise.set_prise();//VERT comme argument?
+    //can it read DC like that or i have to pass the argument
+    // as string?
 
-	generer_PWM(2);
-	fermer_AC();
-	generer_PWM(3);
-	ouvrir_AC();
-	generer_PWM();//DC????
-	voyant.set_charge("vert");
+
+
+    prise.deverouiller_trappe();
+
+    generer_PWM(1);
+
+    cout << io->gene_u << endl;
+    //prise.verrouiller_trappe();
+   // prise.set_prise();//VERT comme argument?
+
+    generer_PWM(2);
+    fermer_AC();
+    generer_PWM(3);
+    ouvrir_AC();
+    generer_PWM(1);//DC????
+    voyant.set_charge();
 
 }
 

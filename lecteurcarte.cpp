@@ -1,5 +1,6 @@
 #include "lecteurcarte.h"
 #include "voyants.h"
+#include "Generateur_save.h"
 
 void LecteurCarte::initialiser()
 {
@@ -8,7 +9,7 @@ void LecteurCarte::initialiser()
 
 void LecteurCarte::lire_carte()
 {
-    voyant.set_dispo();
+
     cout <<"Inserer votre carte"<< endl;
     attente_insertion_carte();
     num_carte = lecture_numero_carte();
@@ -17,6 +18,9 @@ void LecteurCarte::lire_carte()
     {
         cout <<"authentification reussie"<< endl;
         voyant.set_charge();
+
+        generateursave.charger();
+
     }
     else
     {

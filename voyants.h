@@ -17,6 +17,7 @@ class Voyants{
 
 		entrees *io;
 		int shmid;
+		int Prise;
 
 		Voyants();
 
