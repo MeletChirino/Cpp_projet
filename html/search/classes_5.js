@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['voyants',['Voyants',['../classVoyants.html',1,'']]]
+  ['timer',['Timer',['../classTimer.html',1,'']]]
 ];
