@@ -1,0 +1,6 @@
+<map id="GenerateurSave" name="GenerateurSave">
+<area shape="rect" id="node2" href="$classPrise.html" title="Prise" alt="" coords="5,95,60,121"/>
+<area shape="rect" id="node3" href="$classVoyants.html" title="Voyants" alt="" coords="187,95,260,121"/>
+<area shape="rect" id="node4" href="$classBoutons.html" title="Boutons" alt="" coords="93,5,167,32"/>
+<area shape="rect" id="node5" href="$classClient.html" title="Client" alt="" coords="285,95,343,121"/>
+</map>

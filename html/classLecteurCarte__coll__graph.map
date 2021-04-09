@@ -1,0 +1,7 @@
+<map id="LecteurCarte" name="LecteurCarte">
+<area shape="rect" id="node2" href="$classGenerateurSave.html" title="GenerateurSave" alt="" coords="120,184,247,211"/>
+<area shape="rect" id="node3" href="$classPrise.html" title="Prise" alt="" coords="103,95,157,121"/>
+<area shape="rect" id="node4" href="$classVoyants.html" title="Voyants" alt="" coords="5,95,79,121"/>
+<area shape="rect" id="node5" href="$classBoutons.html" title="Boutons" alt="" coords="169,5,243,32"/>
+<area shape="rect" id="node6" href="$classClient.html" title="Client" alt="" coords="283,95,342,121"/>
+</map>
