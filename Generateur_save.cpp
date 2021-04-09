@@ -1,6 +1,4 @@
 #include "Generateur_save.h"
-#include <donnees_borne.h>
-#include <memoire_borne.h>
 
 
 GenerateurSave::GenerateurSave(){
@@ -12,10 +10,9 @@ void GenerateurSave::generer_PWM(int mode)
 	switch(mode){
 		case 1: 
 			io->gene_pwm=DC;
-            cout <<"test"<< endl;
 			break;
 		case 2:
-			io->gene_pwm=AC_1K;
+            io->gene_pwm=AC_1K;
 			break;
 		case 3:
             io->gene_pwm=AC_CL;
@@ -26,56 +23,95 @@ void GenerateurSave::generer_PWM(int mode)
 
 void GenerateurSave::tension()
 {
-    while(1)
-    {
-        switch(io->gene_u)
-        {
-            case 9: cout <<"Prise connectee"<< endl;
-            break;
+    prise.deverouiller_trappe();
 
-            case 12: cout <<"Prise deconnectee"<< endl;
-            break;
+    voyant.after_charge();
+
+    generer_PWM(1);
+
+    while(io->contacteur_AC == 0)
+    {
+        if(io->gene_u == 9)
+        {
+            prise.set_prise(val);
+
+            prise.verouiller_trappe();
+
+            generer_PWM(2);
+
+            fermer_AC();
         }
+
     }
+    charger();
 }
 
 void GenerateurSave::charger()
 {
-    //Voyants voyant();
+    int time =2;
+    int time2 =100000;
 
-    //voyant.set_charge("rouge");
-    //si cette methode fait partie on fait pas self.generer_pwm()?
+    sleep(time*1);
 
-    //can it read DC like that or i have to pass the argument
-    // as string?
+    generer_PWM(3);
+
+    while(io->gene_u != 9)
+    {
+        usleep(time2*5);
+        voyant.after_charge();
+    }
 
 
+    usleep(time2*5);
 
-    prise.deverouiller_trappe();
+    ouvrir_AC();
 
     generer_PWM(1);
 
-    cout << io->gene_u << endl;
-    //prise.verrouiller_trappe();
-   // prise.set_prise();//VERT comme argument?
-
-    generer_PWM(2);
-    fermer_AC();
-    generer_PWM(3);
-    ouvrir_AC();
-    generer_PWM(1);//DC????
-    voyant.set_charge();
-
+    deconnecter();
 }
 
 void GenerateurSave::ouvrir_AC()
 {
+    io->contacteur_AC = 0;
 }
 
 void GenerateurSave::fermer_AC()
 {
+    io->contacteur_AC = 1;
 }
 
 void GenerateurSave::deconnecter()
 {
+    cout <<"Inserer votre carte \n\r"<< endl;
+    attente_insertion_carte();
+    num_carte = lecture_numero_carte();
+
+    if(client.authentifier(num_carte)==1)
+    {
+        cout <<"authentification reussie \n\r"<< endl;
+
+        prise.deverouiller_trappe();
+
+        while(io->contacteur_AC == 0)
+        {
+            if(io->gene_u == 12)
+            {
+                io->led_charge = OFF;
+                io->led_dispo = VERT;
+                io->led_prise = OFF;
+
+                prise.verouiller_trappe();
+                fermer_AC();
+            }
+        }
+        ouvrir_AC();
+
+        cout <<"Merci d'avoir utilisé ma borne, à bientôt ! \n\r"<< endl;
+    }
+    else
+    {
+        cout <<"authentification echouee \n\r"<< endl;
+    }
+
 }

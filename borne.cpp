@@ -1,30 +1,29 @@
 #include <iostream>
+/*
 #include "memoire_borne.h"
 #include "donnees_borne.h"
-
+*/
 #include "lecteurcarte.h"
 #include "base_client.h"
 #include "Generateur_save.h"
+#include "voyants.h"
+#include "boutons.h"
+#include "Prise.h"
+
 
 
 int main()
 {
-    entrees *io;
-    int shmid;
-
-    io = acces_memoire(&shmid);
-
     GenerateurSave generateursave;
     LecteurCarte lecteurcarte;
     Client client;
-
+    Prise prise;
 
     int choix = '.';
-    int a = 1;
 
     while (1)
     {
-        cout <<"Que souhaitez-vous faire ? "<< endl;
+        cout <<"Que souhaitez-vous faire ? \n\r "<< endl;
         cout <<"1 : S'identifier      "<< endl;
         cout <<"2 : Ajouter client    "<< endl;
         cout <<"3 : Supprimer client  "<< endl;
@@ -49,9 +48,3 @@ int main()
     }
 
 }
-/*
-void charger_batterie(){
-    GenerateurSave generateur = GenerateurSave();
-
-	generateur.charger();
-}*/

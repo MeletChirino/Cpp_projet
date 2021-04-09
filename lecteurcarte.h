@@ -4,7 +4,9 @@
 #include "base_client.h"
 #include "voyants.h"
 #include "Generateur_save.h"
+#include "boutons.h"
 #include <iostream>
+
 
 using namespace std;
 
@@ -20,6 +22,7 @@ class LecteurCarte
  	Client client;
 	Voyants voyant;
 	GenerateurSave generateursave;
+	Boutons boutons;
 
 };
 

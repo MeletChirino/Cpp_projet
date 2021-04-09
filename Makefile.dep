@@ -1,5 +1,10 @@
-lecteurcarte.o: lecteurcarte.cpp lecteurcarte.h base_client.h voyants.h
-borne.o: borne.cpp lecteurcarte.h base_client.h voyants.h \
- Generateur_save.h
+lecteurcarte.o: lecteurcarte.cpp lecteurcarte.h base_client.h voyants.h \
+ boutons.h Generateur_save.h Prise.h
+borne.o: borne.cpp lecteurcarte.h base_client.h voyants.h boutons.h \
+ Generateur_save.h Prise.h
 base_client.o: base_client.cpp base_client.h
-voyants.o: voyants.cpp voyants.h
+voyants.o: voyants.cpp voyants.h boutons.h
+Generateur_save.o: Generateur_save.cpp Generateur_save.h Prise.h \
+ boutons.h voyants.h base_client.h
+Prise.o: Prise.cpp Prise.h
+boutons.o: boutons.cpp boutons.h
